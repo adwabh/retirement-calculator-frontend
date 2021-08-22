@@ -1,0 +1,79 @@
+<form
+  [formGroup]="calculatorInputForm"
+  (ngSubmit)="onSubmit(calculatorInputForm.value)"
+  id="calculator-input-form"
+>
+  <div class="ret-calc-container">
+    <mat-card>
+      <mat-card-title id="calc-title"
+        >Financial Information&mdash;<span id="user-display-name">{{
+          userDisplayName
+        }}</span></mat-card-title
+      >
+      <mat-card-subtitle id="current-balance"
+        >(Current Balance: ${{ balance }})</mat-card-subtitle
+      >
+      <mat-card-content class="ret-calc-inputs">
+        <mat-form-field>
+          <input
+            name="currentAge"
+            type="number"
+            placeholder="Current Age"
+            matInput
+            formControlName="currentAge" as FormControl
+          />
+          <mat-error *ngIf="hasError('currentAge', 'required')"
+            >Current Age is required</mat-error
+          >
+          <mat-error *ngIf="hasError('currentAge', 'min')"
+            >Current Age must be at least 18</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            name="retirementAge"
+            type="number"
+            placeholder="Retirement Age"
+            matInput
+            formControlName="retirementAge"
+          />
+          <mat-error *ngIf="hasError('retirementAge', 'required')"
+            >Retirement Age is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            name="annualIncome"
+            type="text"
+            placeholder="Annual Income"
+            matInput
+            formControlName="annualIncome"
+          />
+          <mat-error *ngIf="hasError('annualIncome', 'required')"
+            >Annual income is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            name="savingsRate"
+            type="text"
+            placeholder="Savings Rate"
+            matInput
+            formControlName="savingsRate"
+          />
+          <mat-error *ngIf="hasError('savingsRate', 'required')"
+            >Current Age is required</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-raised-button
+          type="submit"
+          color="accent"
+          [disabled]="!calculatorInputForm.valid"
+        >
+          Calculate Retirement Balance
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</form>
