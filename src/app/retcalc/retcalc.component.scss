@@ -2,9 +2,11 @@
     width: 50em;
     margin: auto;
   }
-  
+
   .ret-calc-inputs {
     display: flex;
     flex-direction: column;
   }
-  
+  mat-slider {
+    width: 300px;
+  }

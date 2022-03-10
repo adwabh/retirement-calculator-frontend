@@ -20,7 +20,9 @@
             type="number"
             placeholder="Current Age"
             matInput
-            formControlName="currentAge" as FormControl
+            formControlName="currentAge"
+            as
+            FormControl
           />
           <mat-error *ngIf="hasError('currentAge', 'required')"
             >Current Age is required</mat-error
@@ -73,6 +75,20 @@
         >
           Calculate Retirement Balance
         </button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="1000"
+          step="1000"
+          min="0"
+          max="100000"
+          aria-label="units"
+        ></mat-slider>
       </mat-card-content>
     </mat-card>
   </div>

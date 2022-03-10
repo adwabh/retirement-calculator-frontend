@@ -14,6 +14,14 @@ export class RetcalcComponent {
   public userDisplayName: String = "Adwait";
   public calculatorInputForm: FormGroup;
 
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return value;
+  }
+
   get balance() {
     return `${this.userBalance.dollars}.${(this.userBalance.cents < 10
       ? "0"
@@ -25,7 +33,7 @@ export class RetcalcComponent {
   }
 
   initializeForm() {
-      
+
   }
 
   constructor(
