@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule, HammerGestureConfig} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { MaterialModule } from './material/material.module';
   imports: [
     HttpClientModule,
     BrowserModule,
+    HammerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -38,7 +39,9 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
