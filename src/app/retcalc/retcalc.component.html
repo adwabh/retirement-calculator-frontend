@@ -4,80 +4,6 @@
   id="calculator-input-form"
 >
   <div class="ret-calc-container">
-    <!-- <mat-card>
-      <mat-card-title id="calc-title"
-        >Financial Information&mdash;<span id="user-display-name">{{
-          userDisplayName
-        }}</span></mat-card-title
-      >
-      <mat-card-subtitle id="current-balance"
-        >(Current Balance: ${{ balance }})</mat-card-subtitle
-      >
-      <mat-card-content class="ret-calc-inputs">
-        <mat-form-field>
-          <input
-            name="currentAge"
-            type="number"
-            placeholder="Current Age"
-            matInput
-            formControlName="currentAge"
-            as
-            FormControl
-          />
-          <mat-error *ngIf="hasError('currentAge', 'required')"
-            >Current Age is required</mat-error
-          >
-          <mat-error *ngIf="hasError('currentAge', 'min')"
-            >Current Age must be at least 18</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            name="retirementAge"
-            type="number"
-            placeholder="Retirement Age"
-            matInput
-            formControlName="retirementAge"
-          />
-          <mat-error *ngIf="hasError('retirementAge', 'required')"
-            >Retirement Age is required</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            name="annualIncome"
-            type="text"
-            placeholder="Annual Income"
-            matInput
-            formControlName="annualIncome"
-          />
-          <mat-error *ngIf="hasError('annualIncome', 'required')"
-            >Annual income is required</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            name="savingsRate"
-            type="text"
-            placeholder="Savings Rate"
-            matInput
-            formControlName="savingsRate"
-          />
-          <mat-error *ngIf="hasError('savingsRate', 'required')"
-            >Current Age is required</mat-error
-          >
-        </mat-form-field>
-        <button
-          mat-raised-button
-          type="submit"
-          color="accent"
-          [disabled]="!calculatorInputForm.valid"
-        >
-          Calculate Retirement Balance
-        </button>
-      </mat-card-content>
-    </mat-card> -->
-
     <mat-card class="mt-11">
       <mat-card-content>
         <div class="flex flex-col">
@@ -86,14 +12,12 @@
               <div class="flex justify-between content-between flex-row">
                 <label for="current-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Current Age</label>
                 <div class="flex-row max-w-{20}">
-                  <input [ngClass]="isEditable()" #numAge type="number" [formControlName]="'currentAgeText'">
                   <span
                     contenteditable="true"
                     class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                     type="number"
                     id="current-age"
-                    (focus)="onFocus()"
-                    (blur)="onFocusLost()"
+                    (input)="onAgeTextInput($event)"
                   >{{currentAge.value}}</span>
                 </div>
               </div>
@@ -112,17 +36,65 @@
             </div>
           </div>
 
-          <mat-slider
-            class="w-{300}"
-            thumbLabel
-            [displayWith]="formatLabel"
-            tickInterval="1000"
-            step="1000"
-            min="0"
-            max="100000"
-            [disabled]="false"
-            aria-label="units"
-          ></mat-slider>
+
+          <div class="flex flex-row">
+            <div class="flex flex-col">
+              <div class="flex justify-between content-between flex-row">
+                <label for="retirement-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Retirement Age</label>
+                <div class="flex-row max-w-{20}">
+                  <span
+                    contenteditable="true"
+                    class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
+                    id="retirement-age"
+                    (input)="onRetirmentAgeTextInput($event)"
+                  >{{retirementAge.value}}</span>
+                </div>
+              </div>
+              <mat-slider
+                class="w-{300}"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="1000"
+                min="0"
+                max="100000"
+                [formControlName]="'retirementAge'"
+                [value]="retirementAge.value"
+                aria-label="units"
+              ></mat-slider>
+            </div>
+          </div>
+
+
+          <div class="flex flex-row">
+            <div class="flex flex-col">
+              <div class="flex justify-between content-between flex-row">
+                <label for="retirement-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">I want to plan for age</label>
+                <div class="flex-row max-w-{20}">
+                  <span
+                    contenteditable="true"
+                    class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
+                    id="retirement-age"
+                    (input)="onPlanAgeTextInput($event)"
+                  >{{planAge.value}}</span>
+                </div>
+              </div>
+              <mat-slider
+                class="w-{300}"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="1000"
+                min="0"
+                max="100000"
+                [formControlName]="'planAge'"
+                [value]="planAge.value"
+                aria-label="units"
+              ></mat-slider>
+            </div>
+          </div>
         </div>
       </mat-card-content>
     </mat-card>

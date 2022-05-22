@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit } from "@angular/core";
 import { BalanceService, Balance } from "src/app/services/balance.service";
 import { User, UserService } from "src/app/services/user.service";
 import { CalculatorInput } from "src/app/services/validators.service";
@@ -23,18 +23,24 @@ export class RetcalcComponent {
     this.calculatorInputForm.get('currentAge')?.setValue(event.target)
   }
 
+  get planAge(): any {
+    return this.calculatorInputForm.get('planAge')
+  }
+  set planAge(event:Event) {
+    this.calculatorInputForm.get('planAge')?.setValue(event.target)
+  }
+
+  get retirementAge(): any {
+    return this.calculatorInputForm.get('retirementAge')
+  }
+  set retirementAge(event:Event) {
+    this.calculatorInputForm.get('retirementAge')?.setValue(event.target)
+  }
+
   get balance() {
     return `${this.userBalance.dollars}.${(this.userBalance.cents < 10
       ? "0"
       : "") + this.userBalance.cents}`;
-  }
-
-  ngOnInit() {
-    this.initializeForm();
-  }
-
-  initializeForm() {
-
   }
 
   constructor(
@@ -46,9 +52,13 @@ export class RetcalcComponent {
       .getUserBalance()
       .subscribe(balance => (this.userBalance = balance));
 
-    // const { first, last } = this.userSvc.user as User;
-    // this.userDisplayName = `${first} ${last}`;
-    this.calculatorInputForm = formBuilder.group({
+    this.calculatorInputForm = this.buildForm(formBuilder)
+
+    this.initComponents()
+  }
+
+  buildForm = (formBuilder:FormBuilder) => {
+    return formBuilder.group({
       currentAge: [
         null,
         Validators.compose([Validators.required, Validators.min(18)])
@@ -61,35 +71,67 @@ export class RetcalcComponent {
         null,
         Validators.compose([Validators.required, Validators.min(0)])
       ],
+      retirementText: [
+        null,
+        Validators.compose([Validators.required, Validators.min(0)])
+      ],
+      planAge: [
+        null,
+        Validators.compose([Validators.required, Validators.min(0)])
+      ],
+      planText: [
+        null,
+        Validators.compose([Validators.required, Validators.min(0)])
+      ],
       annualIncome: [null, Validators.required],
       savingsRate: [null, Validators.required]
     });
+  }
+
+  initComponents = () => {
 
     const cAge = this.calculatorInputForm.get('currentAge')
     const cText = this.calculatorInputForm.get('currentAgeText')
 
     cAge?.valueChanges.subscribe(v => {cText?.setValue(v, {emitEvent: false})})
     cText?.valueChanges.subscribe(v => {cAge?.setValue(v, {emitEvent: false})})
+
+    const retirementAge = this.calculatorInputForm.get('retirementAge')
+    const retirementText = this.calculatorInputForm.get('retirementText')
+
+    retirementAge?.valueChanges.subscribe(v => {retirementText?.setValue(v, {emitEvent: false})})
+    retirementText?.valueChanges.subscribe(v => {retirementAge?.setValue(v, {emitEvent: false})})
+
+    const planAge = this.calculatorInputForm.get('planAge')
+    const planText = this.calculatorInputForm.get('planText')
+
+    planAge?.valueChanges.subscribe(v => {planText?.setValue(v, {emitEvent: false})})
+    planText?.valueChanges.subscribe(v => {planAge?.setValue(v, {emitEvent: false})})
+  }
+
+  onAgeTextInput = (event: Event) => {
+    let contentText = (event.target as Element).innerHTML
+    const cText = this.calculatorInputForm.get('currentAgeText')
+    cText?.setValue(contentText, {emitEvent: true})
+    console.log("currentAgeText value change" + contentText)
+  }
+
+  onRetirmentAgeTextInput = (event: Event) => {
+    let contentText = (event.target as Element).innerHTML
+    const retirementText = this.calculatorInputForm.get('retirementText')
+    retirementText?.setValue(contentText, {emitEvent: true})
+    console.log("retirementText value change" + contentText)
+  }
+
+  onPlanAgeTextInput = (event: Event) => {
+    let contentText = (event.target as Element).innerHTML
+    const planText = this.calculatorInputForm.get('planText')
+    planText?.setValue(contentText, {emitEvent: true})
+    console.log("planText value change" + contentText)
   }
 
   onSubmit(formValues: CalculatorInput) {
     console.log({ formValues });
-  }
-
-  onFocus() {
-    this.isFocussed = true;
-  }
-
-  onFocusLost() {
-    this.isFocussed = false
-  }
-
-  isEditable() {
-    if(this.isFocussed) {
-      return "hidden"
-    } else {
-      return ""
-    }
   }
 
   formatLabel(value: number) {
@@ -98,10 +140,6 @@ export class RetcalcComponent {
     }
 
     return value;
-  }
-
-  onInput(event:Event) {
-    this.calculatorInputForm.get('currentAge')?.setValue(event.target)
   }
 
   public hasError = (controlName: string, errorName: string) => {
