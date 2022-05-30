@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RetcalcComponent } from './retcalc/retcalc.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from './material/material.module';
+import { RecalcBasicComponent } from './recalc-basic/recalc-basic.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MaterialModule } from './material/material.module';
     NavigationComponent,
     DashboardComponent,
     RetcalcComponent,
+    RecalcBasicComponent,
   ],
   imports: [
     HttpClientModule,

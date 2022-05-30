@@ -3,6 +3,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/guards/auth.guard';
+import { RecalcBasicComponent } from './recalc-basic/recalc-basic.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
     component: RetcalcComponent
   },
   {
+    path: "v1/retcalc-recalc-basic",
+    component: RecalcBasicComponent
+  },
+  {
     path: "",
-    redirectTo: "v1/retcalc",
+    redirectTo: "v1/retcalc-recalc-basic",
     pathMatch: "full"
   }
 ];

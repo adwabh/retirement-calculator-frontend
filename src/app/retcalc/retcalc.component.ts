@@ -3,7 +3,6 @@ import { BalanceService, Balance } from "src/app/services/balance.service";
 import { User, UserService } from "src/app/services/user.service";
 import { CalculatorInput } from "src/app/services/validators.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatSliderChange } from "@angular/material/slider";
 
 @Component({
   selector: "app-retcalc",
