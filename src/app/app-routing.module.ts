@@ -1,3 +1,4 @@
+import { StockPortfolioComponent } from './stock-portfolio/stock-portfolio.component';
 import { RetcalcComponent } from './retcalc/retcalc.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,10 @@ import { AuthGuard } from './services/guards/auth.guard';
 import { RecalcBasicComponent } from './recalc-basic/recalc-basic.component';
 
 const routes: Routes = [
+  {
+    path: "v1/stockhealth",
+    component: StockPortfolioComponent
+  },
   {
     path: "v1/dashboard",
     component: DashboardComponent,
@@ -21,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "v1/retcalc-recalc-basic",
+    redirectTo: "v1/stockhealth",
     pathMatch: "full"
   }
 ];

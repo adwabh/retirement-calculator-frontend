@@ -16,6 +16,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from './material/material.module';
 import { RecalcBasicComponent } from './recalc-basic/recalc-basic.component';
 import { StockPortfolioComponent } from './stock-portfolio/stock-portfolio.component';
+import { StockHealthTitleNavigationComponent } from './stock-health-title-navigation/stock-health-title-navigation.component';
+import { StockHealthGraphComponentComponent } from './stock-health-graph-component/stock-health-graph-component.component';
+import { StockHealthTableComponentComponent } from './stock-health-table-component/stock-health-table-component.component';
+import { StockHealthInsightsComponentComponent } from './stock-health-insights-component/stock-health-insights-component.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { StockPortfolioComponent } from './stock-portfolio/stock-portfolio.compo
     RetcalcComponent,
     RecalcBasicComponent,
     StockPortfolioComponent,
+    StockHealthTitleNavigationComponent,
+    StockHealthGraphComponentComponent,
+    StockHealthTableComponentComponent,
+    StockHealthInsightsComponentComponent,
   ],
   imports: [
     HttpClientModule,
