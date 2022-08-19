@@ -20,6 +20,7 @@ import { StockHealthTitleNavigationComponent } from './stock-health-title-naviga
 import { StockHealthGraphComponentComponent } from './stock-health-graph-component/stock-health-graph-component.component';
 import { StockHealthTableComponentComponent } from './stock-health-table-component/stock-health-table-component.component';
 import { StockHealthInsightsComponentComponent } from './stock-health-insights-component/stock-health-insights-component.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { StockHealthInsightsComponentComponent } from './stock-health-insights-c
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxChartsModule,
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig },
