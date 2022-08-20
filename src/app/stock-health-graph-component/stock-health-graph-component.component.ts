@@ -33,99 +33,21 @@ export class StockHealthGraphComponentComponent implements OnInit {
           }
         }
       ]
-    },
-    {
-      "name": "United States",
-      "series": [
-        {
-          "name": "2010",
-          "value": 0,
-          "extra": {
-            "code": "us"
-          }
-        },
-        {
-          "name": "2000",
-          "value": 45986,
-          "extra": {
-            "code": "us"
-          }
-        },
-        {
-          "name": "1990",
-          "value": 37060,
-          "extra": {
-            "code": "us"
-          }
-        }
-      ]
-    },
-    {
-      "name": "France",
-      "series": [
-        {
-          "name": "2010",
-          "value": 36745,
-          "extra": {
-            "code": "fr"
-          }
-        },
-        {
-          "name": "2000",
-          "value": 34774,
-          "extra": {
-            "code": "fr"
-          }
-        },
-        {
-          "name": "1990",
-          "value": 29476,
-          "extra": {
-            "code": "fr"
-          }
-        }
-      ]
-    },
-    {
-      "name": "United Kingdom",
-      "series": [
-        {
-          "name": "2010",
-          "value": 36240,
-          "extra": {
-            "code": "uk"
-          }
-        },
-        {
-          "name": "2000",
-          "value": 32543,
-          "extra": {
-            "code": "uk"
-          }
-        },
-        {
-          "name": "1990",
-          "value": 26424,
-          "extra": {
-            "code": "uk"
-          }
-        }
-      ]
     }
   ];
 
 
-  view: [number, number] = [700, 400];
+  view: [number, number] = [700, 100];
 
   // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
+  showXAxis: boolean = false;
+  showYAxis: boolean = false;
   gradient: boolean = false;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  yAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
-  xAxisLabel: string = 'Population';
+  showLegend: boolean = false;
+  showXAxisLabel: boolean = false;
+  yAxisLabel: string = '';
+  showYAxisLabel: boolean = false;
+  xAxisLabel: string = '';
 
   colorScheme = {
     domain: ['#5AA454', '#C7B42C', '#AAAAAA']
@@ -135,7 +57,7 @@ export class StockHealthGraphComponentComponent implements OnInit {
     Object.assign(this, this.multi);
   }
 
-  onSelect(event: Event) {
+  onSelect(event: Event) { 
     console.log(event);
   }
 
