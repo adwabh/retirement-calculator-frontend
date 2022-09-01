@@ -2,11 +2,18 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
+import { StockDataRequest } from "./stock-portfolio-api-request.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiRequestService {
+
+  getStockData(request: StockDataRequest): Observable<import("./stock-portfolio-api-request.service").ApiResponse> {
+    throw new Error('Method not implemented.');
+  }
+
+
   private _token!: string;
   set token(newVal: string) {
     this._token = newVal;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SrockPortfolioApiRequestService } from '../services/stock-portfolio-api-request.service';
 
 @Component({
   selector: 'app-stockhealth-graph',
@@ -53,11 +54,11 @@ export class StockHealthGraphComponentComponent implements OnInit {
     domain: ['#5AA454', '#C7B42C', '#AAAAAA']
   };
 
-  constructor() {
+  constructor(private stockService: SrockPortfolioApiRequestService) {
     Object.assign(this, this.multi);
   }
 
-  onSelect(event: Event) { 
+  onSelect(event: Event) {
     console.log(event);
   }
 
