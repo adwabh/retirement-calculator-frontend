@@ -1,4 +1,10 @@
-<div>
+<div class="flex flex-row">
+  <div class="flex flex-col ml-4 mr-4 mt-2 mb-2">
+    <div class="font-mono">Current Value</div>
+    <div class="font-heading text-2xl">100000</div>
+    <div class="font-mono">Invested</div>
+    <div class="font-heading text-2xl">59000</div>
+  </div>
   <ngx-charts-bar-horizontal-stacked
   [view]="view"
   [scheme]="colorScheme"
@@ -13,4 +19,8 @@
   [yAxisLabel]="yAxisLabel"
   (select)="onSelect($event)">
   </ngx-charts-bar-horizontal-stacked>
+  <div class="flex flex-col mt-2 mb-2 ml-4 mr-4">
+    <div class="flex font-mono">Profit & Loss</div>
+    <div class="flex font-heading text-2xl">1,53,000</div>
+  </div>
 </div>

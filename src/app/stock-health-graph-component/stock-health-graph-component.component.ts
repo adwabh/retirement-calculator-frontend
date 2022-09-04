@@ -37,7 +37,7 @@ export class StockHealthGraphComponentComponent implements OnInit {
     }
   ];
 
-
+// TODO: make this dynamic
   view: [number, number] = [700, 100];
 
   // options
