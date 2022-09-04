@@ -3,19 +3,26 @@
     <!-- head -->
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th i18n="Stock Name|Name of the stock@@stockName">Name</th>
+        <th i18n="LTP|Last Traded Price@@lastTradedPrice">LTP</th>
+        <th i18n="Average|Average price@@average">Avg.</th>
+        <th i18n="Market-Cap|Market cap for the stock@@marketCap">Market-Cap</th>
+        <th i18n="Sector|Sector of stock@@sector">Sector</th>
+        <th i18n="Holding|Holding time of stock in portfolio@@holdingTime">Holding</th>
+        <th i18n="Stock Health|Stock health based on propritary algorithm@@stockHealth">Stock Health</th>
       </tr>
     </thead>
     <tbody>
       <!-- row 1 -->
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
+      <tr *ngFor="let item of stocks; index as i">
+        <th>{{i}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.lastTradedPrice}}</td>
+        <td>{{item.average}}</td>
+        <td>{{item.marketCap}}</td>
+        <td>{{item.sector}}</td>
+        <td>{{item.holdingTime}}</td>
+        <td>{{item.health}}</td>
       </tr>
       <!-- row 2 -->
       <tr>

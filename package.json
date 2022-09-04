@@ -9,7 +9,8 @@
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "yarn docs:json && start-storybook -p 6006",
-    "build-storybook": "yarn docs:json && build-storybook"
+    "build-storybook": "yarn docs:json && build-storybook",
+    "i18n:extract": "ng xi18n"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "@angular-devkit/build-angular": "^13.3.9",
     "@angular/cli": "~13.2.5",
     "@angular/compiler-cli": "~13.2.5",
+    "@angular/localize": "^13.2.5",
     "@babel/core": "^7.18.9",
     "@compodoc/compodoc": "^1.1.19",
     "@storybook/addon-actions": "^6.5.9",
