@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ApiResponse, StockResponse, StockDataRequest, SrockPortfolioApiRequestService } from '../services/stock-portfolio-api-request.service';
 
 @Component({
   selector: 'app-stockhealth-table',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockHealthTableComponentComponent implements OnInit {
 
-  constructor() { }
+  request = new StockDataRequest("12344")
+  stocks$ = this.stockService.getStockData(this.request).pipe(
+    map((val)=> {
+      return val.data.equity
+    })
+  );
+
+  constructor(private stockService: SrockPortfolioApiRequestService) { }
 
   ngOnInit(): void {
+
   }
 
 }

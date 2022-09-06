@@ -2,15 +2,17 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { StockDataRequest } from "./stock-portfolio-api-request.service";
+import { StockDataRequest, StockResponse } from "./stock-portfolio-api-request.service";
+import {ApiResponse} from "./stock-portfolio-api-request.service"
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiRequestService {
 
-  getStockData(request: StockDataRequest): Observable<import("./stock-portfolio-api-request.service").ApiResponse> {
-    throw new Error('Method not implemented.');
+  getStockData(request: StockDataRequest): Observable<ApiResponse<StockResponse>> {
+    return this.sendRequest("GET", environment.backendUrl, request)
   }
 
 
@@ -31,6 +33,7 @@ export class ApiRequestService {
         })
       })
       .pipe(
+        
         catchError((error: Response) =>
           throwError(`Network Error: ${error.statusText} (${error.status})`)
         )

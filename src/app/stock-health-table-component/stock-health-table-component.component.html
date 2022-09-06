@@ -14,29 +14,15 @@
     </thead>
     <tbody>
       <!-- row 1 -->
-      <tr *ngFor="let item of stocks; index as i">
+      <tr *ngFor="let item of stocks$ | async; index as i">
         <th>{{i}}</th>
         <td>{{item.name}}</td>
-        <td>{{item.lastTradedPrice}}</td>
-        <td>{{item.average}}</td>
-        <td>{{item.marketCap}}</td>
+        <td>{{item.last_traded_price}}</td>
+        <td>{{item.avg}}</td>
+        <td>{{item.market_cap}}</td>
         <td>{{item.sector}}</td>
-        <td>{{item.holdingTime}}</td>
+        <td>{{item.holding_time}}</td>
         <td>{{item.health}}</td>
-      </tr>
-      <!-- row 2 -->
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      <!-- row 3 -->
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
       </tr>
     </tbody>
   </table>

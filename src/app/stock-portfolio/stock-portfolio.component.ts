@@ -7,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockPortfolioComponent implements OnInit {
 
-  // stock:StockData =
+  constructor() { }
 
-  constructor(stockService: SrockPortfolioApiRequestService) { }
-  stocks = Observable<>
   ngOnInit(): void {
   }
 
