@@ -19,9 +19,24 @@ constructor (private requestService: ApiRequestService) {}
 export class StockResponse {
   constructor(
     public profile: ProfileData[],
-    public equity: StockData[],
+    public portfolio: Portfolio,
     public wishlist: StockData[]
     ) {}
+}
+
+export class Portfolio {
+  constructor(
+    public equity: StockData[],
+    public statistics: PortfolioStats
+  ) {}
+}
+
+export class PortfolioStats {
+  constructor(
+      public invested: number,
+      public curren_value: number,
+      public profit_loss: number
+  ) {}
 }
 
 export class ApiResponse<T> {
