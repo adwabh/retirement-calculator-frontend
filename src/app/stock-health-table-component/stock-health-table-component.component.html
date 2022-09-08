@@ -1,30 +1,42 @@
-<div class="overflow-x-auto">
-  <table class="table table-zebra w-full">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th i18n="Serial Number|Sr. No@@number">Serial Number</th>
-        <th i18n="Stock Name|Name of the stock@@stockName">Name</th>
-        <th i18n="LTP|Last Traded Price@@lastTradedPrice">LTP</th>
-        <th i18n="Average|Average price@@average">Avg.</th>
-        <th i18n="Market-Cap|Market cap for the stock@@marketCap">Market-Cap</th>
-        <th i18n="Sector|Sector of stock@@sector">Sector</th>
-        <th i18n="Holding|Holding time of stock in portfolio@@holdingTime">Holding</th>
-        <th i18n="Stock Health|Stock health based on propritary algorithm@@stockHealth">Stock Health</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- row 1 -->
-      <tr *ngFor="let item of stocks$ | async; index as i">
-        <th>{{i}}</th>
-        <td>{{item.name}}</td>
-        <td>{{item.last_traded_price}}</td>
-        <td>{{item.avg}}</td>
-        <td>{{item.market_cap}}</td>
-        <td>{{item.sector}}</td>
-        <td>{{item.holding_time}}</td>
-        <td>{{item.health}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<html data-theme="light">
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th i18n="Serial Number|Sr. No@@number">Serial Number</th>
+          <th i18n="Stock Name|Name of the stock@@stockName">Name</th>
+          <th i18n="LTP|Last Traded Price@@lastTradedPrice">LTP</th>
+          <th i18n="Average|Average price@@average">Avg.</th>
+          <th i18n="Market-Cap|Market cap for the stock@@marketCap">
+            Market-Cap
+          </th>
+          <th i18n="Sector|Sector of stock@@sector">Sector</th>
+          <th i18n="Holding|Holding time of stock in portfolio@@holdingTime">
+            Holding
+          </th>
+          <th
+            i18n="
+              Stock Health|Stock health based on propritary
+              algorithm@@stockHealth"
+          >
+            Stock Health
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr *ngFor="let item of stocks$ | async; index as i">
+          <th>{{ i }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.last_traded_price }}</td>
+          <td>{{ item.avg }}</td>
+          <td>{{ item.market_cap }}</td>
+          <td>{{ item.sector }}</td>
+          <td>{{ item.holding_time }}</td>
+          <td>{{ item.health }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</html>
