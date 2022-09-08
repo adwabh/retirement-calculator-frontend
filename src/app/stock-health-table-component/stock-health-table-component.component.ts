@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiResponse, StockResponse, StockDataRequest, SrockPortfolioApiRequestService } from '../services/stock-portfolio-api-request.service';
+import { StockDataRequest, SrockPortfolioApiRequestService, StockData, PortfolioStats, ProfileData } from '../services/stock-portfolio-api-request.service';
 
 @Component({
   selector: 'app-stockhealth-table',
@@ -11,11 +11,9 @@ import { ApiResponse, StockResponse, StockDataRequest, SrockPortfolioApiRequestS
 export class StockHealthTableComponentComponent implements OnInit , OnDestroy{
   private subscription: Subscription | undefined;
   request = new StockDataRequest("12344")
-  stocks$ = this.stockService.getStockData(this.request).pipe(
-    map((val)=> {
-      return val.data.portfolio.equity
-    })
-  );
+  stocks?: StockData[];
+  wishlist?: StockData[];
+  error: boolean = false;
 
   constructor(private stockService: SrockPortfolioApiRequestService) { }
   ngOnDestroy(): void {
@@ -25,9 +23,16 @@ export class StockHealthTableComponentComponent implements OnInit , OnDestroy{
   ngOnInit(): void {
     this.subscription = this.stockService.getStockData(this.request).subscribe(
         (val)=> {
-          console.log("equity = " + JSON.stringify(val.data.portfolio.equity[0]))
+          this.stocks = val.data.portfolio.equity
+          this.wishlist = val.data.wishlist
+        },
+        (error) => {
+          this.error = true
         }
       )
   }
 
+  onCloseError() {
+    this.error = false
+  }
 }

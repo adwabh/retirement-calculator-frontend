@@ -1,5 +1,6 @@
+import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { SrockPortfolioApiRequestService } from '../services/stock-portfolio-api-request.service';
+import { PortfolioStats, SrockPortfolioApiRequestService, StockDataRequest } from '../services/stock-portfolio-api-request.service';
 
 @Component({
   selector: 'app-stockhealth-graph',
@@ -54,6 +55,14 @@ export class StockHealthGraphComponentComponent implements OnInit {
     domain: ['#5AA454', '#C7B42C', '#AAAAAA']
   };
 
+  subscription?: Subscription;
+  statistics: PortfolioStats = new PortfolioStats(
+    0.0,
+    0.0,
+    0.0
+  )
+  request: StockDataRequest = new StockDataRequest("1234");
+
   constructor(private stockService: SrockPortfolioApiRequestService) {
     Object.assign(this, this.multi);
   }
@@ -63,6 +72,12 @@ export class StockHealthGraphComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subscription = this.stockService.getStockData(this.request).subscribe(
+        (res) => {
+          this.statistics = res.data.portfolio.statistics
+        },
+        (err) => {}
+    )
   }
 
 }
