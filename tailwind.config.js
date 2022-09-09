@@ -7,9 +7,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      fontFamily: {
+      fontFamily: { 
         'heading': ['Lora', 'serif'],
-        'mono': ['DM Mono', 'monospace']
+        'mono': ['DM Mono', 'monospace'],
+        'roboto': ['Roboto', 'sans-serif']
       },
     },
   },

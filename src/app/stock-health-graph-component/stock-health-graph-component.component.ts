@@ -62,6 +62,7 @@ export class StockHealthGraphComponentComponent implements OnInit {
     0.0
   )
   request: StockDataRequest = new StockDataRequest("1234");
+  graphData!: {};
 
   constructor(private stockService: SrockPortfolioApiRequestService) {
     Object.assign(this, this.multi);
@@ -75,9 +76,26 @@ export class StockHealthGraphComponentComponent implements OnInit {
     this.subscription = this.stockService.getStockData(this.request).subscribe(
         (res) => {
           this.statistics = res.data.portfolio.statistics
+          let equityData = res.data.portfolio.equity
+          console.log("raw equity data = " + JSON.stringify(equityData))
+          let data = Object.assign({}, equityData.map(
+            (item) => (
+              {
+                ['name']: item.name,
+                ['value']: item.last_traded_price
+              }
+            ))
+          )
+          console.log("prep data = " + JSON.stringify(data))
+          this.graphData = {
+            "name":"Portfolio",
+            "series": data
+          };
         },
         (err) => {}
     )
+
+    console.log("data for graph is = " + JSON.stringify(this.graphData))
   }
 
 }
