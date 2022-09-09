@@ -78,19 +78,21 @@ export class StockHealthGraphComponentComponent implements OnInit {
           this.statistics = res.data.portfolio.statistics
           let equityData = res.data.portfolio.equity
           console.log("raw equity data = " + JSON.stringify(equityData))
-          let data = Object.assign({}, equityData.map(
+          let data = equityData.map(
             (item) => (
               {
                 ['name']: item.name,
                 ['value']: item.last_traded_price
               }
-            ))
+            )
           )
-          console.log("prep data = " + JSON.stringify(data))
-          this.graphData = {
+
+          this.graphData = [{
             "name":"Portfolio",
             "series": data
-          };
+          }];
+          console.log("prep data = " + JSON.stringify(this.graphData))
+          console.log("expected data = " + JSON.stringify(this.multi))
         },
         (err) => {}
     )
