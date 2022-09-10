@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="stockName" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+        <note priority="1" from="description">Name of the stock</note>
+        <note priority="1" from="meaning">Stock Name</note>
+      </trans-unit>
+      <trans-unit id="lastTradedPrice" datatype="html">
+        <source>LTP</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Last Traded Price</note>
+        <note priority="1" from="meaning">LTP</note>
+      </trans-unit>
+      <trans-unit id="average" datatype="html">
+        <source>Avg.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <note priority="1" from="description">Average price</note>
+        <note priority="1" from="meaning">Average</note>
+      </trans-unit>
+      <trans-unit id="marketCap" datatype="html">
+        <source>Market-Cap</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+        <note priority="1" from="description">Market cap for the stock</note>
+        <note priority="1" from="meaning">Market-Cap</note>
+      </trans-unit>
+      <trans-unit id="sector" datatype="html">
+        <source>Sector</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+        <note priority="1" from="description">Sector of stock</note>
+        <note priority="1" from="meaning">Sector</note>
+      </trans-unit>
+      <trans-unit id="holdingTime" datatype="html">
+        <source>Holding</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <note priority="1" from="description">Holding time of stock in portfolio</note>
+        <note priority="1" from="meaning">Holding</note>
+      </trans-unit>
+      <trans-unit id="stockHealth" datatype="html">
+        <source>Stock Health</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/stock-health-table-component/stock-health-table-component.component.html</context>
+          <context context-type="linenumber">12,17</context>
+        </context-group>
+        <note priority="1" from="description">Stock health based on propritary algorithm</note>
+        <note priority="1" from="meaning">Stock Health</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

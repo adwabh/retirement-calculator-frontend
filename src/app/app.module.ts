@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule, HammerGestureConfig} from '@angular/platform-browser';
@@ -21,6 +21,7 @@ import { StockHealthGraphComponentComponent } from './stock-health-graph-compone
 import { StockHealthTableComponentComponent } from './stock-health-table-component/stock-health-table-component.component';
 import { StockHealthInsightsComponentComponent } from './stock-health-insights-component/stock-health-insights-component.component';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { LoggingInterceptor } from './networkutils/logging-interceptor';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { NgxChartsModule }from '@swimlane/ngx-charts';
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
