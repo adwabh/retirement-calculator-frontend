@@ -52,7 +52,7 @@ export class StockHealthGraphComponentComponent implements OnInit {
   xAxisLabel: string = '';
 
   colorScheme = {
-    domain: ['#5AA454', '#C7B42C', '#AAAAAA']
+    domain: ['#d83f3f', '#3f9fd3', '#48dace', '#d8a53e', '#43c677']
   };
 
   subscription?: Subscription;
