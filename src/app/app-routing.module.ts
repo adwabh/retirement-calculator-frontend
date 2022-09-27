@@ -18,15 +18,22 @@ const routes: Routes = [
   },
   {
     path: "v1/retcalc",
-    component: RetcalcComponent
+    component: RetcalcComponent,
+
   },
   {
     path: "v1/retcalc-recalc-basic",
-    component: RecalcBasicComponent
+    component: RecalcBasicComponent,
+    children: [
+      {
+        path: 'step1',
+        component: RetcalcComponent
+      }
+    ]
   },
   {
     path: "",
-    redirectTo: "v1/stockhealth",
+    redirectTo: "v1/retcalc-recalc-basic",
     pathMatch: "full"
   }
 ];
