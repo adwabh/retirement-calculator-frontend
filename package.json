@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "yarn docs:json && start-storybook -p 6006",
-    "build-storybook": "yarn docs:json && build-storybook",
+    "storybook": "npm docs:json && start-storybook -p 6006",
+    "build-storybook": "npm docs:json && build-storybook",
     "i18n:extract": "ng xi18n"
   },
   "private": true,
@@ -30,7 +30,6 @@
     "daisyui": "^2.20.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
-    "yarn": "^1.22.18",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

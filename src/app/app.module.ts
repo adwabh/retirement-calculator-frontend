@@ -22,6 +22,7 @@ import { StockHealthTableComponentComponent } from './stock-health-table-compone
 import { StockHealthInsightsComponentComponent } from './stock-health-insights-component/stock-health-insights-component.component';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { LoggingInterceptor } from './networkutils/logging-interceptor';
+import { StepTwoComponent } from './step-two/step-two.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoggingInterceptor } from './networkutils/logging-interceptor';
     StockHealthGraphComponentComponent,
     StockHealthTableComponentComponent,
     StockHealthInsightsComponentComponent,
+    StepTwoComponent,
   ],
   imports: [
     HttpClientModule,

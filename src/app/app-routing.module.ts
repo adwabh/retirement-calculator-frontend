@@ -1,3 +1,4 @@
+import { StepTwoComponent } from './step-two/step-two.component';
 import { StockPortfolioComponent } from './stock-portfolio/stock-portfolio.component';
 import { RetcalcComponent } from './retcalc/retcalc.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -26,8 +27,12 @@ const routes: Routes = [
     component: RecalcBasicComponent,
     children: [
       {
-        path: 'step1',
+        path: '',
         component: RetcalcComponent
+      },
+      {
+        path: 'step2',
+        component: StepTwoComponent
       }
     ]
   },
