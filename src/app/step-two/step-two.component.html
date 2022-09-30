@@ -1,1 +1,105 @@
-<p>step-two works!</p>
+<form
+  [formGroup]="calculatorInputForm"
+  (ngSubmit)="onSubmit(calculatorInputForm.value)"
+  id="calculator-input-form"
+>
+  <div class="ret-calc-container">
+    <mat-card class="">
+      <mat-card-content>
+        <div class="flex flex-col">
+          <!-- existing savings -->
+          <div class="flex flex-row">
+            <div class="flex flex-col">
+              <div class="flex justify-between content-between flex-row">
+                <label for="current-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Existing Savings</label>
+                <div class="flex-row max-w-{20}">
+                  <span
+                    contenteditable="true"
+                    class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
+                    id="current-age"
+                    (input)="onExistingSavingsTextInput($event)"
+                  >{{existingSavings.value}}</span>
+                </div>
+              </div>
+              <mat-slider
+                class="w-{300}"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="1000"
+                min="0"
+                max="100000"
+                [formControlName]="'existingSavings'"
+                [value]="existingSavings.value"
+                aria-label="units"
+              ></mat-slider>
+            </div>
+          </div>
+
+          <!-- growth rate -->
+          <div class="flex flex-row">
+            <div class="flex flex-col">
+              <div class="flex justify-between content-between flex-row">
+                <label for="retirement-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Retirement Age</label>
+                <div class="flex-row max-w-{20}">
+                  <span
+                    contenteditable="true"
+                    class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
+                    id="retirement-age"
+                    (input)="onGrowthRateTextInput($event)"
+                  >{{growthRate.value}}</span>
+                </div>
+              </div>
+              <mat-slider
+                class="w-{300}"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="1000"
+                min="0"
+                max="100000"
+                [formControlName]="'growthRate'"
+                [value]="growthRate.value"
+                aria-label="units"
+              ></mat-slider>
+            </div>
+          </div>
+
+          <!-- monthly income from external sources in future -->
+          <div class="flex flex-row">
+            <div class="flex flex-col">
+              <div class="flex justify-between content-between flex-row">
+                <label for="retirement-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">I want to plan for age</label>
+                <div class="flex-row max-w-{20}">
+                  <span
+                    contenteditable="true"
+                    class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
+                    id="retirement-age"
+                    (input)="onFMITextInput($event)"
+                  >{{fmi.value}}</span>
+                </div>
+              </div>
+              <mat-slider
+                class="w-{300}"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="1000"
+                min="0"
+                max="100000"
+                [formControlName]="'fmi'"
+                [value]="fmi.value"
+                aria-label="units"
+              ></mat-slider>
+            </div>
+          </div>
+        </div>
+
+        <button class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Next</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</form>
