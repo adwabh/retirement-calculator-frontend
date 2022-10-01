@@ -3,6 +3,7 @@ import { BalanceService, Balance } from "src/app/services/balance.service";
 import { User, UserService } from "src/app/services/user.service";
 import { CalculatorInput } from "src/app/services/validators.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-retcalc",
@@ -45,7 +46,8 @@ export class RetcalcComponent {
   constructor(
     private userSvc: UserService,
     private balanceSvc: BalanceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.balanceSvc
       .getUserBalance()
@@ -131,6 +133,7 @@ export class RetcalcComponent {
 
   onSubmit(formValues: CalculatorInput) {
     console.log({ formValues });
+    this.router.navigate(['/v1/retcalc-recalc-basic/step2'])
   }
 
   formatLabel(value: number) {
