@@ -23,6 +23,8 @@ import { StockHealthInsightsComponentComponent } from './stock-health-insights-c
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { LoggingInterceptor } from './networkutils/logging-interceptor';
 import { StepTwoComponent } from './step-two/step-two.component';
+import { StepThreeComponent } from './step-three/step-three.component';
+import { SlidableComponent } from './ui/slidable/slidable.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { StepTwoComponent } from './step-two/step-two.component';
     StockHealthTableComponentComponent,
     StockHealthInsightsComponentComponent,
     StepTwoComponent,
+    StepThreeComponent,
+    SlidableComponent,
   ],
   imports: [
     HttpClientModule,

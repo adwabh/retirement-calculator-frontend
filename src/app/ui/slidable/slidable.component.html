@@ -1,0 +1,28 @@
+<div class="flex flex-row">
+  <div class="flex flex-col">
+    <div class="flex justify-between content-between flex-row">
+      <label for="current-age" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Existing Savings</label>
+      <div class="flex-row max-w-{20}">
+        <span
+          contenteditable="true"
+          class="absolute flex z-10 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+          type="number"
+          id="current-age"
+          (input)="onSlidableTextInput($event)"
+        >{{slidable.value}}</span>
+      </div>
+    </div>
+    <mat-slider
+      class="w-{300}"
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1000"
+      step="1000"
+      min="0"
+      max="100000"
+      [formControlName]="'existingSavings'"
+      [value]="slidable.value"
+      aria-label="units"
+    ></mat-slider>
+  </div>
+</div>

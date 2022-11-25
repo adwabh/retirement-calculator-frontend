@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/guards/auth.guard';
 import { RecalcBasicComponent } from './recalc-basic/recalc-basic.component';
+import { StepThreeComponent } from './step-three/step-three.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'step2',
         component: StepTwoComponent
+      },
+      {
+        path: 'step3',
+        component: StepThreeComponent
       }
     ]
   },
