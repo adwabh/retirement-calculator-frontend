@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit } from "@angular/core";
 import { BalanceService, Balance } from "src/app/services/balance.service";
 import { User, UserService } from "src/app/services/user.service";
 import { CalculatorInput } from "src/app/services/validators.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 const FIELD_EXISTING_SAVINGS: string = 'existingSavings';
 const FIELD_GROWTH_RATE: string = 'growthRate';
@@ -18,7 +18,7 @@ const FIELD_TEXT_FUTURE_MONTHLY_INCOME: string = 'fmiText';
 })
 
 export class StepTwoComponent implements OnInit {
-  public calculatorInputForm: FormGroup;
+  public calculatorInputForm: UntypedFormGroup;
 
 
   ngOnInit(): void {
@@ -27,14 +27,14 @@ export class StepTwoComponent implements OnInit {
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private route: ActivatedRoute
   ) {
     this.calculatorInputForm = this.buildForm(formBuilder)
   }
 
-  buildForm = (formBuilder:FormBuilder) => {
+  buildForm = (formBuilder:UntypedFormBuilder) => {
     return formBuilder.group({
       existingSavings: [
         null,

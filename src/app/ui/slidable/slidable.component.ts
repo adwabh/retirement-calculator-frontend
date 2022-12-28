@@ -1,6 +1,6 @@
 import { Form, FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { inherits } from 'util';
 
 @Component({
@@ -12,7 +12,7 @@ export class SlidableComponent implements OnInit {
 
 
   @Input()
-  slidableInputForm!: FormGroup;
+  slidableInputForm!: UntypedFormGroup;
 
   @Input()
   title!: string

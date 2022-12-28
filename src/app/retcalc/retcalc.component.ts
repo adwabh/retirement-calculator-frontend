@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit } from "@angular/core";
 import { BalanceService, Balance } from "src/app/services/balance.service";
 import { User, UserService } from "src/app/services/user.service";
 import { CalculatorInput } from "src/app/services/validators.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class RetcalcComponent {
   private userBalance: Balance = { dollars: 0, cents: 0 };
   public userDisplayName: String = "Adwait";
-  public calculatorInputForm: FormGroup;
+  public calculatorInputForm: UntypedFormGroup;
   isFocussed = false
 
   get currentAge(): any {
@@ -46,7 +46,7 @@ export class RetcalcComponent {
   constructor(
     private userSvc: UserService,
     private balanceSvc: BalanceService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -59,7 +59,7 @@ export class RetcalcComponent {
     this.initComponents()
   }
 
-  buildForm = (formBuilder:FormBuilder) => {
+  buildForm = (formBuilder:UntypedFormBuilder) => {
     return formBuilder.group({
       currentAge: [
         null,
