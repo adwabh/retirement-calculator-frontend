@@ -1,7 +1,6 @@
-import { Form, FormBuilder } from '@angular/forms';
+import { Form, FormBuilder,UntypedFormGroup } from '@angular/forms';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
-import { inherits } from 'util';
+
 
 @Component({
   selector: 'ui-slidable',
